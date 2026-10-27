@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dybali.github.io/estatemarket24/sitemap.xml
