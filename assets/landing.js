@@ -26,6 +26,11 @@
   tabs.forEach((tab) => tab.addEventListener("click", () => { li = Object.keys(TITLES).indexOf(tab.textContent); showLang(tab.textContent); }));
   if (!reduce && title) setInterval(() => { li = (li + 1) % 8; showLang(Object.keys(TITLES)[li]); }, 2200);
 
+  // The sample listing uses the city photo too; if the hero fell back to the original file, use that one.
+  const hero = document.querySelector(".lpx-photo img"), listingPhoto = document.querySelector(".lpx-listing-photo");
+  const syncPhoto = () => { if (listingPhoto && hero.currentSrc && hero.currentSrc === hero.dataset.fallback) listingPhoto.style.backgroundImage = `url("${hero.currentSrc}"),linear-gradient(135deg,#9fd3cf,#0b5f63)`; };
+  if (hero) { if (hero.complete) syncPhoto(); hero.addEventListener("load", syncPhoto); }
+
   // Chat demo: always fully visible (an empty box in between confused visitors); messages appear once, in order.
   const chat = document.querySelector("[data-chat]");
   if (chat) chat.querySelectorAll(".lpx-msg").forEach((m, i) => setTimeout(() => m.classList.add("show", "translated"), reduce ? 0 : 150 + i * 250));

@@ -28,6 +28,8 @@ const select = (name, label, list, role) => `<label class="lpf-field" data-role-
 
 for (const city of cities) {
   const label = `${city.locative.toLocaleUpperCase("tr")} EMLAKÇILARA VE MÜLK SAHİPLERİNE ÖZEL`;
+  // If a 960px thumbnail cannot be made (small original), the page falls back to the original file once.
+  const original = city.imageOriginal || city.image.replace(/\/thumb(\/[0-9a-f]\/[0-9a-f]{2}\/[^/]+)\/[^/]+$/, "$1");
   const alt = city.imageShowsLandmark ? `${city.name} · ${city.landmark}` : city.name;
   const wa = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Merhaba, EstateMarket24 ön kaydı hakkında bilgi almak istiyorum (${city.name}).`)}`;
   const html = `<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -47,7 +49,7 @@ for (const city of cities) {
   <div class="lpx-highlights">${HIGHLIGHTS.map(([b, s]) => `<div><strong>${esc(b)}</strong><span>${esc(s)}</span></div>`).join("")}</div>
   <div class="lpx-hero-actions"><a class="lpx-cta" href="#kayit">Hemen yerinizi ayırtın ${ICON.arrow}</a><p class="lpx-urgency">Kontenjan sınırlı. ${esc(city.name)} için yerinizi şimdi ayırtın.</p></div>
  </div>
- <figure class="lpx-photo"><img src="${esc(city.image)}" alt="${esc(alt)}" fetchpriority="high" onerror="this.remove()"><figcaption><strong>${esc(city.name)}</strong>${city.imageShowsLandmark ? `<span>${esc(city.landmark)}</span>` : ""}</figcaption></figure>
+ <figure class="lpx-photo"><img src="${esc(city.image)}" alt="${esc(alt)}" fetchpriority="high" data-fallback="${esc(original)}" onerror="if(this.dataset.fallback&amp;&amp;this.src!==this.dataset.fallback){this.src=this.dataset.fallback}else{this.remove()}"><figcaption><strong>${esc(city.name)}</strong>${city.imageShowsLandmark ? `<span>${esc(city.landmark)}</span>` : ""}</figcaption></figure>
 </div></section>
 
 <section class="lpx-trust"><div class="lpx-wrap"><span>${ICON.shield}Almanya merkezli Exxelmedia güvencesi</span><span>${ICON.lock}KVKK uyumlu, veriler Almanya’da saklanır</span><span>${ICON.gift}Ön kayıt ücretsizdir</span><span>${ICON.globe}8 dil, 100’den fazla ülke</span></div></section>

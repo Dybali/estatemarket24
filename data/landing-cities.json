@@ -32,14 +32,15 @@
   "name": "Antalya",
   "locative": "Antalya’daki",
   "genitive": "Antalya’nın",
-  "landmark": "Yivli Minare ve Kaleiçi",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Falezlerden_Antalya_Konyaalt%C4%B1_Plaj%C4%B1na_do%C4%9Fru_bir_g%C3%B6r%C3%BCn%C3%BCm.jpg/960px-Falezlerden_Antalya_Konyaalt%C4%B1_Plaj%C4%B1na_do%C4%9Fru_bir_g%C3%B6r%C3%BCn%C3%BCm.jpg",
+  "landmark": "Yivli Minare, Kaleiçi",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Yivli_Minaret_Mosque_Antalya.jpg/960px-Yivli_Minaret_Mosque_Antalya.jpg",
   "credit": {
-   "author": "Esginmurat",
-   "license": "CC BY-SA 4.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Falezlerden_Antalya_Konyaalt%C4%B1_Plaj%C4%B1na_do%C4%9Fru_bir_g%C3%B6r%C3%BCn%C3%BCm.jpg"
+   "author": "Saffron Blaze",
+   "license": "CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Yivli_Minaret_Mosque_Antalya.jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Yivli_Minaret_Mosque_Antalya.jpg"
  },
  {
   "slug": "aydin",
@@ -47,13 +48,14 @@
   "locative": "Aydın’daki",
   "genitive": "Aydın’ın",
   "landmark": "Afrodisias Tetrapylon",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/MonumentAyd%C4%B1n_%283%29.JPG/960px-MonumentAyd%C4%B1n_%283%29.JPG",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Aphrodisias_Tetrapylon_4593.jpg/960px-Aphrodisias_Tetrapylon_4593.jpg",
   "credit": {
-   "author": "CeeGee",
+   "author": "Dosseman",
    "license": "CC BY-SA 4.0",
-   "source": "https://commons.wikimedia.org/wiki/File:MonumentAyd%C4%B1n_(3).JPG"
+   "source": "https://commons.wikimedia.org/wiki/File:Aphrodisias_Tetrapylon_4593.jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/3/32/Aphrodisias_Tetrapylon_4593.jpg"
  },
  {
   "slug": "balikesir",
@@ -75,13 +77,14 @@
   "locative": "Bursa’daki",
   "genitive": "Bursa’nın",
   "landmark": "Ulu Cami",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Bursa_image.jpg/960px-Bursa_image.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Ulucami,Bursa_-_panoramio.jpg/960px-Ulucami,Bursa_-_panoramio.jpg",
   "credit": {
-   "author": "Metuboy",
-   "license": "CC BY-SA 4.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Bursa_image.jpg"
+   "author": "Haluk Comertel",
+   "license": "CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Ulucami,Bursa_-_panoramio.jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Ulucami,Bursa_-_panoramio.jpg"
  },
  {
   "slug": "denizli",
@@ -102,14 +105,15 @@
   "name": "Diyarbakır",
   "locative": "Diyarbakır’daki",
   "genitive": "Diyarbakır’ın",
-  "landmark": "On Gözlü Köprü ve tarihi surlar",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Goletli_Park%2C_Diyarbakir.jpg/960px-Goletli_Park%2C_Diyarbakir.jpg",
+  "landmark": "On Gözlü Köprü",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Bridge_over_the_Tigris,_Diyarbakir.jpg/960px-Bridge_over_the_Tigris,_Diyarbakir.jpg",
   "credit": {
-   "author": "Cemallamec",
-   "license": "CC BY-SA 4.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Goletli_Park%2C_Diyarbakir.jpg"
+   "author": "Verity Cridland",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Bridge_over_the_Tigris,_Diyarbakir.jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Bridge_over_the_Tigris,_Diyarbakir.jpg"
  },
  {
   "slug": "erzurum",
@@ -117,13 +121,14 @@
   "locative": "Erzurum’daki",
   "genitive": "Erzurum’un",
   "landmark": "Çifte Minareli Medrese",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Erzurum_Citadel_-_Erzurum_Kalesi_01.jpg/960px-Erzurum_Citadel_-_Erzurum_Kalesi_01.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Erzurum_Cifte_Minareli_Sunrise.JPG/960px-Erzurum_Cifte_Minareli_Sunrise.JPG",
   "credit": {
-   "author": "Zeynel Cebeci",
-   "license": "CC BY-SA 4.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Erzurum_Citadel_-_Erzurum_Kalesi_01.jpg"
+   "author": "Bjørn Christian Tørrissen",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Erzurum_Cifte_Minareli_Sunrise.JPG"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/4/47/Erzurum_Cifte_Minareli_Sunrise.JPG"
  },
  {
   "slug": "eskisehir",
@@ -131,13 +136,14 @@
   "locative": "Eskişehir’deki",
   "genitive": "Eskişehir’in",
   "landmark": "Odunpazarı evleri",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Sazova_Park_2.jpg/960px-Sazova_Park_2.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Eski%C5%9Fehir_odunpazar%C4%B1_evleri.jpg/960px-Eski%C5%9Fehir_odunpazar%C4%B1_evleri.jpg",
   "credit": {
-   "author": "BSRF",
-   "license": "CC BY-SA 4.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Sazova_Park_2.jpg"
+   "author": "Honacan",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Eski%C5%9Fehir_odunpazar%C4%B1_evleri.jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/1/10/Eski%C5%9Fehir_odunpazar%C4%B1_evleri.jpg"
  },
  {
   "slug": "gaziantep",
@@ -159,27 +165,29 @@
   "locative": "Hatay’daki",
   "genitive": "Hatay’ın",
   "landmark": "Habib-i Neccar Camii",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Antakya_Views_from_hill_at_SE_in_1990%27s_05.jpg/960px-Antakya_Views_from_hill_at_SE_in_1990%27s_05.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Habib-i_Neccar_Camii.jpg/960px-Habib-i_Neccar_Camii.jpg",
   "credit": {
-   "author": "Dosseman",
+   "author": "Selin Gücüm",
    "license": "CC BY-SA 4.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Antakya_Views_from_hill_at_SE_in_1990's_05.jpg"
+   "source": "https://commons.wikimedia.org/wiki/File:Habib-i_Neccar_Camii.jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Habib-i_Neccar_Camii.jpg"
  },
  {
   "slug": "istanbul",
   "name": "İstanbul",
   "locative": "İstanbul’daki",
   "genitive": "İstanbul’un",
-  "landmark": "Galata Kulesi ve Boğaz",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Historical_peninsula_and_modern_skyline_of_Istanbul.jpg/960px-Historical_peninsula_and_modern_skyline_of_Istanbul.jpg",
+  "landmark": "Galata Kulesi ve Haliç",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Galata_Tower_(67m.).jpg/960px-Galata_Tower_(67m.).jpg",
   "credit": {
-   "author": "Hunanuk",
-   "license": "CC0",
-   "source": "https://commons.wikimedia.org/wiki/File:Historical_peninsula_and_modern_skyline_of_Istanbul.jpg"
+   "author": "Jorge Láscar",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Galata_Tower_(67m.).jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Galata_Tower_(67m.).jpg"
  },
  {
   "slug": "izmir",
@@ -187,13 +195,14 @@
   "locative": "İzmir’deki",
   "genitive": "İzmir’in",
   "landmark": "İzmir Saat Kulesi",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Cumhuriyet_Square.jpg/960px-Cumhuriyet_Square.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/%C4%B0zmir_Clock_Tower,_Konak_Square.jpg/960px-%C4%B0zmir_Clock_Tower,_Konak_Square.jpg",
   "credit": {
-   "author": "Michael ksk",
-   "license": "CC BY-SA 3.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Cumhuriyet_Square.jpg"
+   "author": "Maurice Flesier",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:%C4%B0zmir_Clock_Tower,_Konak_Square.jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/a/ad/%C4%B0zmir_Clock_Tower,_Konak_Square.jpg"
  },
  {
   "slug": "kahramanmaras",
@@ -201,13 +210,14 @@
   "locative": "Kahramanmaraş’taki",
   "genitive": "Kahramanmaraş’ın",
   "landmark": "Kahramanmaraş Kalesi",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Kahramanmara%C5%9F_city_center.jpg/960px-Kahramanmara%C5%9F_city_center.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/2/23/Maras_Zitadelle.JPG",
   "credit": {
-   "author": "Myrat",
-   "license": "CC BY-SA 4.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Kahramanmara%C5%9F_city_center.jpg"
+   "author": "Elelicht",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Maras_Zitadelle.JPG"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/2/23/Maras_Zitadelle.JPG"
  },
  {
   "slug": "kayseri",
@@ -229,13 +239,14 @@
   "locative": "Kocaeli’ndeki",
   "genitive": "Kocaeli’nin",
   "landmark": "İzmit Saat Kulesi",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/The_Kocaeli_Sign_in_%C4%B0zmit_City_Center_01.06.2025_02.jpg/960px-The_Kocaeli_Sign_in_%C4%B0zmit_City_Center_01.06.2025_02.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/%C4%B0ZM%C4%B0T_CLOCK_TOWER20200916.jpg/960px-%C4%B0ZM%C4%B0T_CLOCK_TOWER20200916.jpg",
   "credit": {
-   "author": "Wiki leylek",
-   "license": "CC BY 4.0",
-   "source": "https://commons.wikimedia.org/wiki/File:The_Kocaeli_Sign_in_%C4%B0zmit_City_Center_01.06.2025_02.jpg"
+   "author": "Kocaeligönüllüsü",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:%C4%B0ZM%C4%B0T_CLOCK_TOWER20200916.jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/0/09/%C4%B0ZM%C4%B0T_CLOCK_TOWER20200916.jpg"
  },
  {
   "slug": "konya",
@@ -243,13 +254,14 @@
   "locative": "Konya’daki",
   "genitive": "Konya’nın",
   "landmark": "Mevlana Türbesi",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Konyaaltincarsi.jpg/960px-Konyaaltincarsi.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Mevlana_Museum,_Konya_03.jpg/960px-Mevlana_Museum,_Konya_03.jpg",
   "credit": {
-   "author": "Konya Karatay Belediyesi",
-   "license": "CC BY 4.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Konyaaltincarsi.jpg"
+   "author": "Murat Özsoy",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Mevlana_Museum,_Konya_03.jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Mevlana_Museum,_Konya_03.jpg"
  },
  {
   "slug": "malatya",
@@ -257,13 +269,14 @@
   "locative": "Malatya’daki",
   "genitive": "Malatya’nın",
   "landmark": "Battalgazi Ulu Camii",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Turgut_%C3%96zal_Tabiat_Park%C4%B1_G%C3%B6l.jpg/960px-Turgut_%C3%96zal_Tabiat_Park%C4%B1_G%C3%B6l.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/4/48/Great_Mosque_of_Malatya_5728_(4842733020).jpg",
   "credit": {
-   "author": "L.Versoa",
-   "license": "CC BY-SA 4.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Turgut_%C3%96zal_Tabiat_Park%C4%B1_G%C3%B6l.jpg"
+   "author": "Panegyrics of Granovetter",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Great_Mosque_of_Malatya_5728_(4842733020).jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/4/48/Great_Mosque_of_Malatya_5728_(4842733020).jpg"
  },
  {
   "slug": "manisa",
@@ -299,13 +312,14 @@
   "locative": "Mersin’deki",
   "genitive": "Mersin’in",
   "landmark": "Kızkalesi",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Mersin-tekneler.jpg/960px-Mersin-tekneler.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/K%C4%B1zkalesi_(Maiden's_castle).jpg/960px-K%C4%B1zkalesi_(Maiden's_castle).jpg",
   "credit": {
-   "author": "Mersin Page",
+   "author": "Nedim Ardoğa",
    "license": "CC BY-SA 3.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Mersin-tekneler.jpg"
+   "source": "https://commons.wikimedia.org/wiki/File:K%C4%B1zkalesi_(Maiden's_castle).jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/d/d2/K%C4%B1zkalesi_(Maiden's_castle).jpg"
  },
  {
   "slug": "mugla",
@@ -313,27 +327,29 @@
   "locative": "Muğla’daki",
   "genitive": "Muğla’nın",
   "landmark": "Bodrum Kalesi",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Fethiye_Town_in_Daylight_%28cropped%29.jpg/960px-Fethiye_Town_in_Daylight_%28cropped%29.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Bodrum_Castle_(2017).jpg/960px-Bodrum_Castle_(2017).jpg",
   "credit": {
-   "author": "Alexander Annenkov from Moscow, Russia",
-   "license": "CC BY 2.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Fethiye_Town_in_Daylight_(cropped).jpg"
+   "author": "Serhio Magpie",
+   "license": "CC BY 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Bodrum_Castle_(2017).jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Bodrum_Castle_(2017).jpg"
  },
  {
   "slug": "ordu",
   "name": "Ordu",
   "locative": "Ordu’daki",
   "genitive": "Ordu’nun",
-  "landmark": "Boztepe ve teleferik",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Ordu%2C_Turkey.JPG/960px-Ordu%2C_Turkey.JPG",
+  "landmark": "Boztepe’den Ordu",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/T%C3%BCrkiye_Ordu_Boztepe.jpg/960px-T%C3%BCrkiye_Ordu_Boztepe.jpg",
   "credit": {
-   "author": "Ahmet Gürsakal",
-   "license": "CC BY-SA 3.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Ordu%2C_Turkey.JPG"
+   "author": "Fatih.gdk",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:T%C3%BCrkiye_Ordu_Boztepe.jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/6/65/T%C3%BCrkiye_Ordu_Boztepe.jpg"
  },
  {
   "slug": "sakarya",
@@ -341,13 +357,14 @@
   "locative": "Sakarya’daki",
   "genitive": "Sakarya’nın",
   "landmark": "Justinianus Köprüsü",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/TR_Sakarya_asv2021-10_img20_Urban_Park.jpg/960px-TR_Sakarya_asv2021-10_img20_Urban_Park.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Sangarius_Bridge,_Justinyen_K%C3%B6pr%C3%BCs%C3%BC.JPG/960px-Sangarius_Bridge,_Justinyen_K%C3%B6pr%C3%BCs%C3%BC.JPG",
   "credit": {
-   "author": "A.Savin",
-   "license": "FAL",
-   "source": "https://commons.wikimedia.org/wiki/File:TR_Sakarya_asv2021-10_img20_Urban_Park.jpg"
+   "author": "Acar54",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Sangarius_Bridge,_Justinyen_K%C3%B6pr%C3%BCs%C3%BC.JPG"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/0/04/Sangarius_Bridge,_Justinyen_K%C3%B6pr%C3%BCs%C3%BC.JPG"
  },
  {
   "slug": "samsun",
@@ -355,13 +372,14 @@
   "locative": "Samsun’daki",
   "genitive": "Samsun’un",
   "landmark": "Bandırma Vapuru",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Samsun_kolaj_%282018%2C_2%29.png/960px-Samsun_kolaj_%282018%2C_2%29.png",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Band%C4%B1rma_Vapuru_Samsun.jpg/960px-Band%C4%B1rma_Vapuru_Samsun.jpg",
   "credit": {
-   "author": "Cobija",
+   "author": "Bilgiamiri",
    "license": "CC BY-SA 4.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Samsun_kolaj_(2018%2C_2).png"
+   "source": "https://commons.wikimedia.org/wiki/File:Band%C4%B1rma_Vapuru_Samsun.jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/6/64/Band%C4%B1rma_Vapuru_Samsun.jpg"
  },
  {
   "slug": "sanliurfa",
@@ -382,14 +400,15 @@
   "name": "Tekirdağ",
   "locative": "Tekirdağ’daki",
   "genitive": "Tekirdağ’ın",
-  "landmark": "Rakoczi Müzesi ve sahil",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Tekirda%C4%9F_Valilik.JPG/960px-Tekirda%C4%9F_Valilik.JPG",
+  "landmark": "Rakoczi Müzesi",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Rodost%C3%B3,_R%C3%A1k%C3%B3czi_M%C3%BAzeum_2024_03.jpg/960px-Rodost%C3%B3,_R%C3%A1k%C3%B3czi_M%C3%BAzeum_2024_03.jpg",
   "credit": {
-   "author": "Ollios",
-   "license": "CC BY-SA 3.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Tekirda%C4%9F_Valilik.JPG"
+   "author": "Pasztilla (Attila Terbócs)",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Rodost%C3%B3,_R%C3%A1k%C3%B3czi_M%C3%BAzeum_2024_03.jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Rodost%C3%B3,_R%C3%A1k%C3%B3czi_M%C3%BAzeum_2024_03.jpg"
  },
  {
   "slug": "trabzon",
@@ -397,13 +416,14 @@
   "locative": "Trabzon’daki",
   "genitive": "Trabzon’un",
   "landmark": "Sümela Manastırı",
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Trebisonda%2C_ex-chiesa_della_panagia_Chrysokephalos%2C_oggi_moschea_fatih%2C_esterno_01.jpg/960px-Trebisonda%2C_ex-chiesa_della_panagia_Chrysokephalos%2C_oggi_moschea_fatih%2C_esterno_01.jpg",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/S%C3%BCmela_manast%C4%B1r%C4%B102.jpg/960px-S%C3%BCmela_manast%C4%B1r%C4%B102.jpg",
   "credit": {
-   "author": "Francesco Bini",
+   "author": "Azak umit",
    "license": "CC BY-SA 4.0",
-   "source": "https://commons.wikimedia.org/wiki/File:Trebisonda%2C_ex-chiesa_della_panagia_Chrysokephalos%2C_oggi_moschea_fatih%2C_esterno_01.jpg"
+   "source": "https://commons.wikimedia.org/wiki/File:S%C3%BCmela_manast%C4%B1r%C4%B102.jpg"
   },
-  "imageShowsLandmark": false
+  "imageShowsLandmark": true,
+  "imageOriginal": "https://upload.wikimedia.org/wikipedia/commons/c/c1/S%C3%BCmela_manast%C4%B1r%C4%B102.jpg"
  },
  {
   "slug": "van",
