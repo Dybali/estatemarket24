@@ -1,138 +1,99 @@
-// One-question-per-screen pre-registration for the city landing pages (scripts/build-landing.mjs).
-// Answers are sent to the EstateMarket24 system (POST /api/on-kayit), which stores them and lists them for
-// the team. Turkish only: the copy is the owner's campaign brief.
+// City pre-registration pages (scripts/build-landing.mjs): language and chat demos, the form at the bottom.
+// Answers go to the EstateMarket24 system (POST /api/on-kayit), which stores them for the team.
 (() => {
-  const root = document.querySelector("#lp-flow");
-  if (!root) return;
-  const API = root.dataset.api;
-  const city = { slug: root.dataset.city, name: root.dataset.name, genitive: root.dataset.genitive, locative: root.dataset.locative };
-  const PRIVACY = root.dataset.privacy;
-  const SITE = root.dataset.site;
-  const OPTIONS = {
-    portfolio: ["1–10", "11–50", "51–200", "200+"], yesNo: ["Evet", "Hayır"],
-    package: ["Başlangıç", "Standart", "Gelişmiş", "Profesyonel", "Kurumsal", "Premium", "Henüz karar vermedim"],
-    propertyType: ["Daire", "Villa", "Müstakil ev", "Arsa", "İşyeri", "Diğer"], propertyCount: ["1", "2–3", "4 ve üzeri"],
-    purpose: ["Satılık", "Kiralık", "Her ikisi"], timeline: ["Hemen", "3 ay içinde", "6 ay içinde", "Sadece bilgi almak istiyorum"],
+  const body = document.body;
+  const API = body.dataset.api, city = { slug: body.dataset.city, name: body.dataset.name, locative: body.dataset.locative };
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // 8 languages demo: the sample listing title cycles through the languages.
+  const TITLES = {
+    TR: ["Deniz manzaralı 3+1 daire", "Satılık"], DE: ["3-Zimmer-Wohnung mit Meerblick", "Zu verkaufen"], EN: ["3-bedroom flat with sea view", "For sale"],
+    AR: ["شقة 3+1 بإطلالة على البحر", "للبيع"], RU: ["Квартира 3+1 с видом на море", "Продажа"], FR: ["Appartement 3+1 vue mer", "À vendre"],
+    FA: ["آپارتمان ۳+۱ با چشم‌انداز دریا", "فروشی"], NL: ["3+1 appartement met zeezicht", "Te koop"],
   };
+  const chip = document.querySelector("[data-lang-chip]"), title = document.querySelector("[data-lang-title]"), meta = document.querySelector("[data-lang-meta]");
+  const tabs = [...document.querySelectorAll("[data-langs] span")];
+  const metaBase = meta ? meta.textContent.replace(/ · [^·]+$/, "") : "";
+  let li = 0;
+  const showLang = (code) => {
+    if (!title) return;
+    const [text, purpose] = TITLES[code];
+    title.textContent = text; title.dir = code === "AR" || code === "FA" ? "rtl" : "ltr";
+    if (chip) chip.textContent = code;
+    if (meta) meta.textContent = `${metaBase} · ${purpose}`;
+    tabs.forEach((tab) => tab.classList.toggle("on", tab.textContent === code));
+  };
+  tabs.forEach((tab) => tab.addEventListener("click", () => { li = Object.keys(TITLES).indexOf(tab.textContent); showLang(tab.textContent); }));
+  if (!reduce && title) setInterval(() => { li = (li + 1) % 8; showLang(Object.keys(TITLES)[li]); }, 2200);
+
+  // Chat demo: each message shows the original, then its translation.
+  const chat = document.querySelector("[data-chat]");
+  if (chat && !reduce) {
+    const msgs = [...chat.querySelectorAll(".lpx-msg")];
+    let step = 0;
+    const play = () => { msgs.forEach((m, i) => { m.classList.toggle("show", i <= Math.floor(step / 2)); m.classList.toggle("translated", i < Math.floor((step + 1) / 2)); }); step = (step + 1) % (msgs.length * 2 + 2); };
+    play(); setInterval(play, 1400);
+  } else if (chat) chat.querySelectorAll(".lpx-msg").forEach((m) => m.classList.add("show", "translated"));
+
+  // Form.
+  const form = document.querySelector("#lpf");
+  if (!form) return;
+  const errorBox = form.querySelector(".lpf-error"), submit = form.querySelector(".lpf-submit");
+  const districtLabel = form.querySelector("[data-district-label]"), districtBase = districtLabel ? districtLabel.textContent : "";
   const MSG = {
-    name: "Adınızı ve soyadınızı girin.", company: "Emlak ofisinizin adını girin.", phone: "Geçerli bir cep telefonu numarası girin.",
-    email: "Geçerli bir e-posta adresi girin.", required: "Bu soru zorunlu.", notice: "Devam etmek için Aydınlatma Metni’ni onaylayın.",
+    role: "Lütfen emlakçı mı yoksa bireysel mülk sahibi mi olduğunuzu seçin.", name: "Adınızı ve soyadınızı girin.", company: "Emlak ofisinizin adını girin.",
+    phone: "Geçerli bir cep telefonu numarası girin.", email: "Geçerli bir e-posta adresi girin.", notice: "Devam etmek için Aydınlatma Metni’ni onaylayın.",
     failed: "Kayıt şu anda gönderilemedi. Lütfen birkaç dakika sonra tekrar deneyin.",
   };
   const EMAIL = /^[^\s@<>()",;]+@[^\s@<>()",;]+\.[^\s@<>()",;]{2,}$/;
-  const ROLE = { key: "role", title: "Size nasıl yardımcı olabiliriz?", kind: "choice", required: true, options: [["agent", "Emlakçıyım / emlak ofisi sahibiyim"], ["owner", "Bireysel mülk sahibiyim"]] };
-  const contact = [
-    { key: "phone", title: "Cep telefonunuz", kind: "tel", required: true, placeholder: "05xx xxx xx xx" },
-    { key: "email", title: "E-posta adresiniz", kind: "email", required: true, placeholder: "ornek@eposta.com" },
-  ];
-  const stepsFor = (role) => role === "agent" ? [
-    { key: "name", title: "Adınız soyadınız", kind: "text", required: true },
-    { key: "company", title: "Emlak ofisinizin adı", kind: "text", required: true },
-    ...contact,
-    { key: "district", title: `Ofisiniz ${city.genitive} hangi ilçesinde?`, kind: "text" },
-    { key: "portfolio", title: "Portföyünüzde yaklaşık kaç ilan var?", kind: "choice", options: OPTIONS.portfolio },
-    { key: "foreignSales", title: "Daha önce yabancı müşteriye satış yaptınız mı?", kind: "choice", options: OPTIONS.yesNo },
-    { key: "package", title: "Hangi paketle ilgileniyorsunuz?", kind: "choice", options: OPTIONS.package },
-  ] : [
-    { key: "name", title: "Adınız soyadınız", kind: "text", required: true },
-    ...contact,
-    { key: "district", title: `Mülkünüz ${city.genitive} hangi ilçesinde?`, kind: "text" },
-    { key: "propertyType", title: "Mülkünüzün türü nedir?", kind: "choice", options: OPTIONS.propertyType },
-    { key: "propertyCount", title: "Kaç mülkünüzü ilana çıkarmayı düşünüyorsunuz?", kind: "choice", options: OPTIONS.propertyCount },
-    { key: "purpose", title: "Mülkünüzü ne için ilana çıkarmak istiyorsunuz?", kind: "choice", options: OPTIONS.purpose },
-    { key: "timeline", title: "Ne zaman ilana çıkmayı planlıyorsunuz?", kind: "choice", options: OPTIONS.timeline },
-  ];
-  const values = {}, tracking = {};
+  const tracking = {};
   const q = new URLSearchParams(location.search);
   for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"]) if (q.get(key)) tracking[key] = q.get(key).slice(0, 200);
-  let screen = 0, busy = false;
-  const steps = () => [ROLE, ...(values.role ? stepsFor(values.role) : [])];
-  const esc = (text) => String(text).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const check = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
-  const arrow = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-  const back = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>';
+  const setRole = (role) => {
+    form.dataset.role = role;
+    form.querySelectorAll("[data-role-only]").forEach((el) => { el.hidden = el.dataset.roleOnly !== role; });
+    if (districtLabel) districtLabel.textContent = role ? `${role === "agent" ? "Ofisiniz" : "Mülkünüz"} ${districtBase}` : districtBase;
+  };
+  form.querySelectorAll('input[name="role"]').forEach((radio) => radio.addEventListener("change", () => setRole(radio.value)));
+  setRole("");
+  const fail = (message, field) => { errorBox.textContent = message; errorBox.hidden = false; if (field) form.querySelector(`[name="${field}"]`)?.focus(); };
 
-  function problem(step, value) {
-    const v = String(value || "").trim();
-    if (step.key === "name" && v.length < 3) return MSG.name;
-    if (step.key === "company" && v.length < 2) return MSG.company;
-    if (step.kind === "tel") { const d = v.replace(/\D/g, ""); if (d.length < 10 || d.length > 15) return MSG.phone; }
-    if (step.kind === "email" && !EMAIL.test(v)) return MSG.email;
-    if (step.required && !v) return MSG.required;
-    return "";
-  }
-  function progress() { const total = values.role ? steps().length + 1 : 10; return Math.min(100, Math.round(((screen + 1) / total) * 100)); }
-  function render(message = "") {
-    const list = steps();
-    document.body.classList.add("lp-in-flow");
-    let inner;
-    if (screen < list.length) {
-      const step = list[screen], current = values[step.key] || "";
-      const body = step.kind === "choice"
-        ? `<div class="lp-choices" role="radiogroup" aria-label="${esc(step.title)}">${step.options.map((o, i) => { const [value, text] = Array.isArray(o) ? o : [o, o];
-            return `<button type="button" role="radio" aria-checked="${current === value}" class="lp-choice${current === value ? " selected" : ""}" data-value="${esc(value)}"><span class="lp-key">${"ABCDEFGH"[i]}</span>${esc(text)}${current === value ? check : ""}</button>`; }).join("")}
-            ${step.required ? "" : '<button type="button" class="lp-skip" data-skip>Geç</button>'}</div>`
-        : `<input class="lp-input" id="lp-input" type="${step.kind === "text" ? "text" : step.kind}" ${step.kind === "tel" ? 'inputmode="tel" autocomplete="tel"' : step.kind === "email" ? 'inputmode="email" autocomplete="email"' : step.key === "name" ? 'autocomplete="name"' : step.key === "company" ? 'autocomplete="organization"' : 'autocomplete="off"'} placeholder="${esc(step.placeholder || "")}" value="${esc(current)}" maxlength="${step.key === "district" ? 80 : 200}">
-           <div class="lp-actions"><button type="submit" class="lp-ok">Tamam ${check}</button><span class="lp-hint">Enter ↵</span></div>`;
-      inner = `<form id="lp-form" novalidate><p class="lp-step">${screen + 1} →</p><h2>${esc(step.title)}${step.required ? " *" : ""}</h2>${body}${message ? `<p class="lp-error" role="alert">${esc(message)}</p>` : ""}</form>`;
-    } else {
-      inner = `<form id="lp-consent"><h2>Son adım</h2>
-        <label class="lp-check"><input type="checkbox" id="lp-notice" ${values.notice ? "checked" : ""}><span>KVKK Aydınlatma Metni’ni okudum ve kabul ediyorum. <a href="${esc(PRIVACY)}" target="_blank" rel="noopener">Aydınlatma Metni</a> *</span></label>
-        <label class="lp-check"><input type="checkbox" id="lp-marketing" ${values.marketing ? "checked" : ""}><span>Kampanya ve bilgilendirme mesajları almak istiyorum.</span></label>
-        <input class="lp-honeypot" id="lp-website" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button type="submit" class="lp-cta" ${busy ? "disabled" : ""}>${busy ? "Gönderiliyor…" : "Ön kaydı tamamla"} ${arrow}</button>
-        ${message ? `<p class="lp-error" role="alert">${esc(message)}</p>` : ""}</form>`;
-    }
-    root.innerHTML = `<main class="lp lp-screen"><div class="lp-progress" aria-hidden="true"><span style="width:${progress()}%"></span></div>
-      <div class="lp-card"><button type="button" class="lp-back" data-back>${back} Geri</button>${inner}</div></main>`;
-    window.scrollTo(0, 0);
-    const input = root.querySelector("#lp-input"); if (input) setTimeout(() => input.focus(), 50);
-  }
-  function thanks(gift) {
-    const text = values.role === "agent"
-      ? `${city.locative} ilk emlakçılar arasındasınız. ${gift ? "%50 hediyeniz tanımlandı. " : ""}Ekibimiz en kısa sürede sizinle iletişime geçecek.`
-      : `${city.locative} ilk mülk sahipleri arasındasınız. Mülkünüzü dünyanın dört bir yanındaki alıcılara ulaştırmak için ekibimiz en kısa sürede sizinle iletişime geçecek.`;
-    root.innerHTML = `<main class="lp lp-screen lp-thanks"><div class="lp-card"><img class="lp-logo-dark" src="../assets/logo-horizontal.svg" alt="EstateMarket24" width="190" height="37">
-      <h1>Yeriniz ayrıldı! 🎉</h1><p>${esc(text)}</p>${SITE ? `<a class="lp-cta" href="${esc(SITE)}">EstateMarket24’ü keşfedin ${arrow}</a>` : ""}</div></main>`;
-    window.scrollTo(0, 0);
-  }
-  async function send() {
-    if (busy) return;
-    values.notice = root.querySelector("#lp-notice").checked;
-    values.marketing = root.querySelector("#lp-marketing").checked;
-    if (!values.notice) { render(MSG.notice); return; }
-    busy = true; render();
-    try {
-      const response = await fetch(API, { method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, ...tracking, city: city.slug, source: `landing-${city.slug}`, website: root.querySelector("#lp-website")?.value || "" }) });
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(response.status >= 500 ? MSG.failed : data.error || MSG.failed);
-      busy = false;
-      (window.dataLayer = window.dataLayer || []).push({ event: "pre_registration", city: city.slug, role: values.role });
-      if (typeof window.gtag === "function") window.gtag("event", "generate_lead", { city: city.slug, role: values.role });
-      thanks(Boolean(data.gift));
-    } catch (cause) { busy = false; render(cause.message && cause.message !== "Failed to fetch" ? cause.message : MSG.failed); }
-  }
-
-  document.querySelectorAll("[data-start]").forEach((button) => button.addEventListener("click", () => { screen = 0; render(); }));
-  root.addEventListener("click", (event) => {
-    const target = event.target.closest("button");
-    if (!target) return;
-    if (target.hasAttribute("data-back")) { if (screen === 0) { root.innerHTML = ""; document.body.classList.remove("lp-in-flow"); window.scrollTo(0, 0); return; } screen -= 1; render(); return; }
-    if (target.hasAttribute("data-skip")) { screen += 1; render(); return; }
-    if (target.dataset.value !== undefined) {
-      const step = steps()[screen]; values[step.key] = target.dataset.value;
-      if (step.key === "role") for (const key of Object.keys(values)) if (!["role", "notice", "marketing"].includes(key) && !stepsFor(values.role).some((s) => s.key === key)) delete values[key];
-      render(); setTimeout(() => { screen += 1; render(); }, 160);
-    }
-  });
-  root.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    if (event.target.id === "lp-consent") { send(); return; }
-    const step = steps()[screen], input = root.querySelector("#lp-input");
-    values[step.key] = input ? input.value : values[step.key];
-    const issue = problem(step, values[step.key]);
-    if (issue) { render(issue); return; }
-    screen += 1; render();
+    errorBox.hidden = true;
+    const data = Object.fromEntries(new FormData(form));
+    const role = data.role;
+    if (role !== "agent" && role !== "owner") return fail(MSG.role);
+    if (String(data.name || "").trim().length < 3) return fail(MSG.name, "name");
+    if (role === "agent" && String(data.company || "").trim().length < 2) return fail(MSG.company, "company");
+    const digits = String(data.phone || "").replace(/\D/g, "");
+    if (digits.length < 10 || digits.length > 15) return fail(MSG.phone, "phone");
+    if (!EMAIL.test(String(data.email || "").trim())) return fail(MSG.email, "email");
+    if (!form.notice.checked) return fail(MSG.notice, "notice");
+    const payload = { ...tracking, role, city: city.slug, source: `landing-${city.slug}`, notice: true, marketing: form.marketing.checked, website: data.website || "" };
+    for (const key of ["name", "company", "phone", "email", "district", "portfolio", "foreignSales", "package", "propertyType", "propertyCount", "purpose", "timeline"])
+      if (data[key] && !(form.querySelector(`[name="${key}"]`)?.closest("[data-role-only]")?.hidden)) payload[key] = data[key];
+    submit.disabled = true;
+    try {
+      const response = await fetch(API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(response.status >= 500 ? MSG.failed : result.error || MSG.failed);
+      (window.dataLayer = window.dataLayer || []).push({ event: "pre_registration", city: city.slug, role });
+      if (typeof window.gtag === "function") window.gtag("event", "generate_lead", { city: city.slug, role });
+      const thanks = document.querySelector(".lpf-thanks");
+      thanks.querySelector("[data-thanks-text]").textContent = role === "agent"
+        ? `${city.locative} ilk emlakçılar arasındasınız. ${result.gift ? "%50 hediyeniz tanımlandı. " : ""}Ekibimiz en kısa sürede sizinle iletişime geçecek.`
+        : `${city.locative} ilk mülk sahipleri arasındasınız. Mülkünüzü dünyanın dört bir yanındaki alıcılara ulaştırmak için ekibimiz en kısa sürede sizinle iletişime geçecek.`;
+      const share = thanks.querySelector("[data-share]"), page = location.origin + location.pathname;
+      const text = role === "agent"
+        ? `${city.locative} mülkleri 8 dilde yabancı alıcılara ulaştıran EstateMarket24’e ön kayıt yaptım. Sen de yerini ayırt: ${page}`
+        : `Mülkünü 8 dilde yabancı alıcılara ulaştırmak için EstateMarket24’e ön kayıt yap: ${page}`;
+      share.href = `https://wa.me/?text=${encodeURIComponent(text)}`;
+      thanks.querySelector("[data-share-label]").textContent = role === "agent" ? "Meslektaşınızı davet edin" : "Tanıdıklarınızla paylaşın";
+      form.hidden = true; thanks.hidden = false; thanks.focus();
+      thanks.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+    } catch (cause) {
+      fail(cause.message && cause.message !== "Failed to fetch" ? cause.message : MSG.failed);
+    } finally { submit.disabled = false; }
   });
 })();
