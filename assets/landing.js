@@ -26,14 +26,9 @@
   tabs.forEach((tab) => tab.addEventListener("click", () => { li = Object.keys(TITLES).indexOf(tab.textContent); showLang(tab.textContent); }));
   if (!reduce && title) setInterval(() => { li = (li + 1) % 8; showLang(Object.keys(TITLES)[li]); }, 2200);
 
-  // Chat demo: each message shows the original, then its translation.
+  // Chat demo: always fully visible (an empty box in between confused visitors); messages appear once, in order.
   const chat = document.querySelector("[data-chat]");
-  if (chat && !reduce) {
-    const msgs = [...chat.querySelectorAll(".lpx-msg")];
-    let step = 0;
-    const play = () => { msgs.forEach((m, i) => { m.classList.toggle("show", i <= Math.floor(step / 2)); m.classList.toggle("translated", i < Math.floor((step + 1) / 2)); }); step = (step + 1) % (msgs.length * 2 + 2); };
-    play(); setInterval(play, 1400);
-  } else if (chat) chat.querySelectorAll(".lpx-msg").forEach((m) => m.classList.add("show", "translated"));
+  if (chat) chat.querySelectorAll(".lpx-msg").forEach((m, i) => setTimeout(() => m.classList.add("show", "translated"), reduce ? 0 : 150 + i * 250));
 
   // Form.
   const form = document.querySelector("#lpf");

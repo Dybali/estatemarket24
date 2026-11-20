@@ -34,7 +34,7 @@ for (const city of cities) {
 <title>${esc(city.name)} ön kayıt | EstateMarket24</title><meta name="description" content="${esc(city.locative)} emlakçılar ve mülk sahipleri için EstateMarket24 ön kaydı. Mülklerinizi 8 dilde yayınlayın, yabancı alıcılarla canlı çeviriyle mesajlaşın.">
 <meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#0B5F63"><link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Tek tıkla 3,2 milyar insana ulaşın | EstateMarket24"><meta property="og:description" content="${esc(city.locative)} mülklerinizi 8 dilde yayınlayın."><meta property="og:image" content="${esc(city.image)}">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script>document.documentElement.classList.add("js")</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap"><link rel="stylesheet" href="../assets/landing.css"><link rel="preload" as="image" href="${esc(city.image)}">
 </head><body class="lpx" data-api="${esc(API)}" data-city="${esc(city.slug)}" data-name="${esc(city.name)}" data-locative="${esc(city.locative)}" data-site="${esc(SITE)}">
 <header class="lpx-top"><div class="lpx-wrap"><img src="../assets/logo-horizontal.svg" alt="EstateMarket24" width="180" height="35"><a class="lpx-top-cta" href="#kayit">Yerinizi ayırtın</a></div></header>
@@ -69,8 +69,10 @@ for (const city of cities) {
    <p class="lpx-kicker">${ICON.chat} Canlı çeviri ile mesajlaşma</p>
    <h3>Alıcı Almanca yazar, siz Türkçe okursunuz.</h3>
    <div class="lpx-chat" data-chat>
-    <div class="lpx-msg in"><span class="lpx-orig">Hallo! Ist die Wohnung noch verfügbar?</span><span class="lpx-tr">Merhaba! Daire hâlâ müsait mi?</span><small>Almancadan çevrildi</small></div>
-    <div class="lpx-msg out"><span class="lpx-orig">Evet, müsait. Yarın görüntülü görüşebiliriz.</span><span class="lpx-tr">Ja, sie ist verfügbar. Wir können morgen per Video sprechen.</span><small>Almancaya çevrilerek gönderildi</small></div>
+    <div class="lpx-chat-head"><span class="lpx-avatar">M</span><span><strong>Markus · Münih</strong><small>Deniz manzaralı 3+1 daire</small></span></div>
+    <div class="lpx-msg in"><span class="lpx-orig">Guten Tag! Ist die Wohnung noch verfügbar? Kann ich sie nächste Woche besichtigen?</span><span class="lpx-tr">İyi günler! Daire hâlâ müsait mi? Gelecek hafta görebilir miyim?</span><small>🇩🇪 Almancadan çevrildi</small></div>
+    <div class="lpx-msg out"><span class="lpx-orig">Evet, müsait. Salı günü saat 14:00 uygun mu?</span><span class="lpx-tr">Ja, sie ist verfügbar. Passt Ihnen Dienstag um 14 Uhr?</span><small>🇹🇷 Almancaya çevrilerek gönderildi</small></div>
+    <div class="lpx-msg in"><span class="lpx-orig">Perfekt, bis Dienstag!</span><span class="lpx-tr">Harika, salı görüşmek üzere!</span><small>🇩🇪 Almancadan çevrildi</small></div>
    </div>
    <p class="lpx-demo-note">Örnek yazışmadır.</p>
   </article>
