@@ -19,8 +19,8 @@ const ICON = {
   langs: svg('<path d="M4 5h8M8 3v2M6 5c0 4 3 7 6 8M10 5c0 4-3 7-6 8M13 20l4-9 4 9M14.5 17h5"/>'),
 };
 const WA_ICON = '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>';
-const HIGHLIGHTS = [["109", "ülke"], ["8", "dil"], ["Canlı", "çeviriyle mesajlaşma"], ["%50", "ilk 1000 emlakçıya hediye"]];
-const FEATURES = ["Tek tıkla 3,2 milyar insana ulaşım", "İlanlarınız otomatik olarak 8 dilde yayında", "Canlı çeviri ile yabancı alıcılarla kendi dilinizde mesajlaşma",
+const HIGHLIGHTS = [["100+", "ülke"], ["8", "dil"], ["Canlı", "çeviriyle mesajlaşma"], ["%50", "ilk 1000 emlakçıya hediye"]];
+const FEATURES = ["2,5 milyardan fazla insanın konuştuğu 8 dile tek tıkla ulaşım", "İlanlarınız otomatik olarak 8 dilde yayında", "Canlı çeviri ile yabancı alıcılarla kendi dilinizde mesajlaşma",
   "İlk 1000 emlakçıya %50 hediye", "Bireysel mülk sahiplerine erken kayıt ayrıcalığı", "Onaylı ve doğrulanmış ilanlarla güvenilir profil"];
 const option = (list) => `<option value="">Seçin</option>${list.map((v) => `<option>${esc(v)}</option>`).join("")}`;
 const field = (name, label, attrs = "") => `<label class="lpf-field" data-for="${name}"><span>${label}</span><input name="${name}" ${attrs}></label>`;
@@ -33,7 +33,7 @@ for (const city of cities) {
   const html = `<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(city.name)} ön kayıt | EstateMarket24</title><meta name="description" content="${esc(city.locative)} emlakçılar ve mülk sahipleri için EstateMarket24 ön kaydı. Mülklerinizi 8 dilde yayınlayın, yabancı alıcılarla canlı çeviriyle mesajlaşın.">
 <meta name="robots" content="noindex, nofollow"><meta name="theme-color" content="#0B5F63"><link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Tek tıkla 3,2 milyar insana ulaşın | EstateMarket24"><meta property="og:description" content="${esc(city.locative)} mülklerinizi 8 dilde yayınlayın."><meta property="og:image" content="${esc(city.image)}">
+<meta property="og:title" content="2,5 milyardan fazla insanın konuştuğu 8 dilde yayınlayın | EstateMarket24"><meta property="og:description" content="${esc(city.locative)} mülklerinizi 8 dilde yayınlayın."><meta property="og:image" content="${esc(city.image)}">
 <script>document.documentElement.classList.add("js")</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap"><link rel="stylesheet" href="../assets/landing.css"><link rel="preload" as="image" href="${esc(city.image)}">
 </head><body class="lpx" data-api="${esc(API)}" data-city="${esc(city.slug)}" data-name="${esc(city.name)}" data-locative="${esc(city.locative)}" data-site="${esc(SITE)}">
@@ -42,15 +42,15 @@ for (const city of cities) {
 <section class="lpx-hero"><div class="lpx-wrap lpx-hero-grid">
  <div class="lpx-hero-copy">
   <p class="lpx-eyebrow">${esc(label)}</p>
-  <h1>Tek tıkla 3,2 milyar insana ulaşın</h1>
-  <p class="lpx-sub">${esc(city.locative)} mülklerinizi 8 dilde yayınlayın, yabancı alıcılarla canlı çeviriyle anında mesajlaşın.</p>
+  <h1>Mülklerinizi 2,5 milyardan fazla insanın konuştuğu 8 dilde yayınlayın</h1>
+  <p class="lpx-sub">${esc(city.locative)} mülklerinizi yabancı alıcılara gösterin, onlarla canlı çeviriyle anında mesajlaşın.</p>
   <div class="lpx-highlights">${HIGHLIGHTS.map(([b, s]) => `<div><strong>${esc(b)}</strong><span>${esc(s)}</span></div>`).join("")}</div>
   <div class="lpx-hero-actions"><a class="lpx-cta" href="#kayit">Hemen yerinizi ayırtın ${ICON.arrow}</a><p class="lpx-urgency">Kontenjan sınırlı. ${esc(city.name)} için yerinizi şimdi ayırtın.</p></div>
  </div>
  <figure class="lpx-photo"><img src="${esc(city.image)}" alt="${esc(alt)}" fetchpriority="high" onerror="this.remove()"><figcaption><strong>${esc(city.name)}</strong>${city.imageShowsLandmark ? `<span>${esc(city.landmark)}</span>` : ""}</figcaption></figure>
 </div></section>
 
-<section class="lpx-trust"><div class="lpx-wrap"><span>${ICON.shield}Almanya merkezli Exxelmedia güvencesi</span><span>${ICON.lock}KVKK uyumlu, veriler Almanya’da saklanır</span><span>${ICON.gift}Ön kayıt ücretsizdir</span><span>${ICON.globe}8 dil, 109 ülke</span></div></section>
+<section class="lpx-trust"><div class="lpx-wrap"><span>${ICON.shield}Almanya merkezli Exxelmedia güvencesi</span><span>${ICON.lock}KVKK uyumlu, veriler Almanya’da saklanır</span><span>${ICON.gift}Ön kayıt ücretsizdir</span><span>${ICON.globe}8 dil, 100’den fazla ülke</span></div></section>
 
 <section class="lpx-show"><div class="lpx-wrap">
  <h2>Mülkünüz dünyanın dört bir yanında, siz kendi dilinizde.</h2>
